@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+button{
+    cursor: pointer;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav ul li{
+    margin-left: 20px;
+}
+a{
+    font-weight: 600;
+    color: #777;
+    text-decoration: none;
+}
+
+.logo{
+    font-size: 18px;
+    font-weight: bold;
+}
+.logo span{
+    color: skyblue;
+}
+nav{
+    padding: 0 40px;
+    display: flex;
+    justify-content:space-between;
+    line-height: 50px;
+    height: 50px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}
+.banner{
+    width: 1280px;
+    margin: 0 auto;
+}
+.product{
+    height: 300px;
+    
+}
+.p_btn{
+    display: flex;
+    justify-content: space-around;
+    margin:20px 0
+}
+.p_btn button{
+    width: 100px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid  skyblue;
+    border-radius: 5px;
+}
+.p_img{
+    margin-top: 20px;
+    background: #e3e3e3;
+}
+.bottom{
+    margin-top: 20px;
+    height: 400px;
+}
+.flex_con{
+    display: flex;
+    justify-content: space-between;
+}
+.notice{
+    width: 70%;
+    height: 100%;
+    border: 1px solid #888;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+.event{
+    width: 30%;
+    height: 100%;
+    border-radius: 10px; 
+}
+.event img{
+    border-radius: 10px;
+}
+.n_top{
+    height: 40px;
+    border-bottom: 1px solid #888;
+    
+}
+.n_top h3{
+    float: left;
+    font-size: 20px;
+}
+.n_top i{
+    float: right;
+}
+.n_bottom{
+    margin-top: 10px;
+}
+.notice span{
+    float: right;
+}
