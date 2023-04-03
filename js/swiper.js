@@ -20,7 +20,7 @@ var swiper = new Swiper(".mySwiper", {
       delay: 2500,
       disableOnInteraction: false,
     },
-    slidesPerView:4,
+    slidesPerView:5,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

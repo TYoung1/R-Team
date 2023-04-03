@@ -31,22 +31,78 @@
         <div class="wrapper">
             <div class="product">
                 <div class="p_btn">
-                        <button>BENZ</button>
-                        <button>HYUNDAI</button>
-                        <button>AUDI</button>
-                        <button>KIA</button>
-                        <button>BMW</button>
+                        <button onclick="Switch('Toyota')">TOYOTA</button>
+                        <button onclick="Switch('Hyundai')">HYUNDAI</button>
+                        <button onclick="Switch('Audi')">AUDI</button>
+                        <button onclick="Switch('Vw')">VW</button>
+                        <button onclick="Switch('Bmw')">BMW</button>
                 </div>
-                <span>AUDI</span>
-                <div class="p_img">
+                <span id="c_title">AUDI</span>
+                <div class="p_img" id="Audi"> 
                     <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A1.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A3.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A4.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A5.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A6.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A7.png" width="100%" height="100%"></div></div>
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A8.png" width="100%" height="100%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p_img" id="Bmw">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_1_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_2_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_3_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_4_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_5_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_6_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_7_Series.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/BMW_8_Series.png" width="100%" height="100%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p_img" id="Hyundai">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/그랜저.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/넥쏘.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/베뉴.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/쏘나타.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/아반떼.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/아이오닉5.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/아이오닉6.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/캐스퍼.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/코나.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/투싼.png" width="100%" height="100%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p_img" id="Vw">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/golf.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/passat.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/polo.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/up.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/tiguan.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/sharan.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/tcross.png" width="100%" height="100%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p_img" id="Toyota">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/gr86.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/supra.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/prius.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/yaris.png" width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/proace.png      " width="100%" height="100%"></div></div>
+                            <div class="swiper-slide"><div class="car_wrap"><img src="./img/rav4.png" width="100%" height="100%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -71,13 +127,42 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
+                
+            </div>
+        </div>
+        <div class="detail">
+            <h3>상세조회</h3>
+            <div class="side">
+                <div class="kind"><span>차종</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box">
+                    <input type="radio" name="kind" value="경차">경차
+                    <input type="radio" name="kind" value="소형">소형
+                    <input type="radio" name="kind" value="중형">중형
+                    <input type="radio" name="kind" value="대형">대형
+                    <input type="radio" name="kind" value="스포츠카">스포츠카
+                </div>
+                <div class="kind"><span>연식</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box">
+                    <input type="text" name="min_year"> ~ <input type="text" name="max_year">
+                </div>
+                <div class="kind"><span>주행거리</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box">
+                    <input type="text" name="min_dis"> ~ <input type="text" name="max_dis">
+                </div>
+                <div class="kind"><span>가격</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box">
+                    <input type="text" name="min_price"> ~ <input type="text" name="max_price">
+                </div>
+                <button>검색하기</button>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./js/swiper.js"></script>
+    <script src="./js/func.js"></script>
 </body>
 </html>
