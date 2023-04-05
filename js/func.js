@@ -6,7 +6,8 @@ function Switch(car){
     }
     document.getElementById(car).style.display="block";
 }
-function showandhide(){
+function Showandhide(evt,val){
     let box = document.getElementsByClassName("box");
+    document.getElementById(val).style.display="block";
     
 }

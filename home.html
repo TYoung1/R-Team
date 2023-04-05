@@ -14,7 +14,7 @@
         <a href="home.html" class="logo"><span>개발</span>차</a>
         
         <ul>
-            <li><a href="/login.html">로그인</a></li>
+            <li><a href="./login.html">로그인</a></li>
             <li><a href="#">회원가입</a></li>
         </ul>
     </nav>
@@ -31,14 +31,14 @@
         <div class="wrapper">
             <div class="product">
                 <div class="p_btn">
-                        <button onclick="Switch('Toyota')">TOYOTA</button>
-                        <button onclick="Switch('Hyundai')">HYUNDAI</button>
                         <button onclick="Switch('Audi')">AUDI</button>
+                        <button onclick="Switch('Toyota')">TOYOTA</button>
+                        <button onclick="Switch('Hyundai')">HYUNDAI</button>                        
                         <button onclick="Switch('Vw')">VW</button>
                         <button onclick="Switch('Bmw')">BMW</button>
                 </div>
                 <span id="c_title">AUDI</span>
-                <div class="p_img" id="Audi"> 
+                <div class="p_img" id="Audi" style="display: block;"> 
                     <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><div class="car_wrap"><img src="./img/Audi_A1.png" width="100%" height="100%"></div></div>
@@ -137,24 +137,24 @@
         <div class="detail">
             <h3>상세조회</h3>
             <div class="side">
-                <div class="kind"><span>차종</span><i class="fa-solid fa-caret-down"></i></div>
-                <div class="box">
+                <div class="menu" onclick="Showandhide(event,'size')"><span>차종</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box" id="size">
                     <input type="radio" name="kind" value="경차">경차
                     <input type="radio" name="kind" value="소형">소형
                     <input type="radio" name="kind" value="중형">중형
                     <input type="radio" name="kind" value="대형">대형
                     <input type="radio" name="kind" value="스포츠카">스포츠카
                 </div>
-                <div class="kind"><span>연식</span><i class="fa-solid fa-caret-down"></i></div>
-                <div class="box">
+                <div class="menu" onclick="Showandhide(event,'year')"><span>연식</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box" id="year">
                     <input type="text" name="min_year"> ~ <input type="text" name="max_year">
                 </div>
-                <div class="kind"><span>주행거리</span><i class="fa-solid fa-caret-down"></i></div>
-                <div class="box">
+                <div class="menu" onclick="Showandhide(event,'km')"><span>주행거리</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box" id="km">
                     <input type="text" name="min_dis"> ~ <input type="text" name="max_dis">
                 </div>
-                <div class="kind"><span>가격</span><i class="fa-solid fa-caret-down"></i></div>
-                <div class="box">
+                <div class="menu" onclick="Showandhide(event,'price')"><span>가격</span><i class="fa-solid fa-caret-down"></i></div>
+                <div class="box" id="price">
                     <input type="text" name="min_price"> ~ <input type="text" name="max_price">
                 </div>
                 <button>검색하기</button>
