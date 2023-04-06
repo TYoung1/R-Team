@@ -24,16 +24,17 @@
                 <div class="login-title">
                     로그인
                 </div>
-                <form>
-                    <input type='text' placeholder="아이디를 입력해주세요." class='Input'>
+                <form name= "form_Login" method="post" action="selectForm" enctype="utf-8">
+                    <input type='text' placeholder="아이디를 입력해주세요." class='Input' name = "User_id">
                     </input>
                     <br />
-                    <input type='text' placeholder="비밀번호를 입력해주세요." class='Input'>
+                    <input type='text' placeholder="비밀번호를 입력해주세요." class='Input' name = "User_pw">
                     </input>
                     <br />
                     <button type="submit" id='login_button' onclick="">
                         로그인
                     </button>
+                   </form>
                     <div class="login-guide">
                         아직 개발차 계정이 없다면? <a href="#" class="c_red">지금 즉시 가입하기.</a>
                         <br>
@@ -46,7 +47,6 @@
                             <li><a href="#">비밀번호 찾기</a></li>
                         </ul>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -64,7 +64,5 @@
                     © 2023. Kim Tae Young , Park Jun Beom. All rights reserved.
                 </div>
         </footer>
-    
 </body>
-
 </html>

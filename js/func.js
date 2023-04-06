@@ -9,5 +9,4 @@ function Switch(car){
 function Showandhide(evt,val){
     let box = document.getElementsByClassName("box");
     document.getElementById(val).style.display="block";
-    
 }
