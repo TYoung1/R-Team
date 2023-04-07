@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #e3e7f5;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+		
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.logo {
+		width: 80%;
+		height: 30px;
+		margin: auto;
+		text-align: center;
+		font-size: 20px;
+		
+	}
+
+	.logo span {
+		color: skyblue;
+	}
+
+	.tit_top {
+		width: 80%;
+		margin: auto;
+		height: 450px;
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		font-size: 12px;
+		background-color: #e3e7f5;
+		padding: 10px 0 10px 0px;
+	}
+
+	.input {
+		padding: 5px 5px 0px 5px;
+		width: 250px;
+	}
+
+
+	.submit_bug {
+		border: 0;
+		background-color: #e3e7f5;
+	}
+
+	.submit_bug:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.mt {
+		display: block;
+		margin-top: 20px;
+	}
+</style>
+
+<body>
+	<a href="home.html">
+		<div class="logo">
+			<span>개발</span>차
+		</div>
+	</a>
+	<div class="tit_top">
+	<form method="post" action="deleteForm">
+		<input type="text" name="User_id" class="input mt" placeholder="탈퇴할 ID를 입력하세요">
+		<div class="mt">정말 탈퇴하겠습니까</div>
+		<div class="mt">
+			<button type="submit" class="submit_bug">네</button>
+			<a href="Lougout.jsp" class="">아니오</a>
+		</div>
+	</form>
+</div>
+</body>
+
+</html>

@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        width: 1000px;
+        height: 500px;
+    }
+
+    .frame {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+</style>
+
 <body>
     <div>
-        
+        <button class="message_button" onclick="message_make()">메세지</button>
+        <iframe title="help scout beacon" style="display: none;" id="message_page" src="Delete.html" class="frame" width="500px" height="500px">
+
+        </iframe>
     </div>
 </body>
 <script src="/js/manager.js"></script>
+
 </html>
