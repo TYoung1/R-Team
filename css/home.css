@@ -142,6 +142,7 @@ nav{
     left: 30px;
     padding-top: 20px;
     border: 1px solid #e1e1e1;
+    border-radius: 10px;
 }
 .side{
     padding: 20px;
@@ -178,7 +179,7 @@ i{
     float: left;
 }
 footer {
-    
+
     width: 100%;
     height: 200px;
     background: black;
