@@ -28,3 +28,18 @@ topbtn.addEventListener('click',function(){
 })
 
 window.onscroll = ()=>window.scrollY > 500 ? topbtn.style.opacity=1 : topbtn.style.opacity=0;
+
+function chk_value() {
+    const min_year = document.getElementById("min_year").value;
+    const max_year = document.getElementById("max_year").value;
+    const min_mileage = document.getElementById("min_year").value;
+    const max_mileage = document.getElementById("max_year").value;
+    const min_price = document.getElementById("min_year").value;
+    const max_price = document.getElementById("max_year").value;
+    }
+    if (min_year !== "" && max_year !== "" && min_mileage !== "" && max_mileage !== "" && min_price !== "" && max_price !== "") {
+        document.querySelector("button[type=submit]").removeAttribute("disabled")
+    } else {
+        document.querySelector("button[type=submit]").setAttribute("disabled", "disabled")
+    };
+

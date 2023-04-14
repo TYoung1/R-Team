@@ -15,9 +15,9 @@
 <body>
 	<nav>
 		<%
-	Object ID_ = session.getAttribute("user_id");
-	String ID_value = (String) ID_;
-	%>
+		Object ID_ = session.getAttribute("user_id");
+		String ID_value = (String) ID_;
+		%>
 		<a href="Home.jsp" class="logo"><span>개발</span>차</a>
 		<!-- ID_ 가 Null 이면 navbar 상단에 로그인 / 회원가입 표시 -->
 		<%
@@ -58,16 +58,20 @@
 					String make = car.MAKE;
 					String url = car.URL;
 				%>
-				<a href="car_detail.jsp?carid=<%= car_id %>">
-				<div class="card">
-					<div class="c_bottom">
-						<div><img src="<%= url%>" width="100%" height="100%"/></div>
-						<div class="bottom1"><%=type%></div>
-						<div class="bottom2">
-							<span class="card_info_center">연식 <%=year%></span><span class="card_info_center">가격 <%=price%></span><span class="card_info_center">주행거리 <%=mile%></span>
+				<a href="car_detail.jsp?carid=<%=car_id%>">
+					<div class="card">
+						<div class="c_bottom">
+							<div>
+								<img src="<%=url%>" width="100%" height="100%" />
+							</div>
+							<div class="bottom1"><%=type%></div>
+							<div class="bottom2">
+								<span class="card_info_center">연식 <%=year%></span><span
+									class="card_info_center">가격 <%=price%></span><span
+									class="card_info_center">주행거리 <%=mile%></span>
+							</div>
 						</div>
 					</div>
-				</div>
 				</a>
 				<%
 				}
@@ -82,7 +86,9 @@
 						<span>차종</span><i class="fa-solid fa-caret-down"></i>
 					</div>
 					<div class="box" id="size">
-						<input type="radio" value="경차" name="car_type">경차 <input
+						<input type="radio" value="경차" name="car_type" checked="checked">경차
+
+							<input type="radio" value="경차" name="car_type">경차 <input
 							type="radio" value="소형" name="car_type">소형 <input
 							type="radio" value="중형" name="car_type">중형 <input
 							type="radio" value="대형" name="car_type">대형 <input
@@ -92,13 +98,18 @@
 						<span>연식</span><i class="fa-solid fa-caret-down"></i>
 					</div>
 					<div class="box" id="year">
+						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
+							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
 						<input type="text" name="car_min_year"> ~ <input
 							type="text" name="car_max_year">
+
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
 						<span>주행거리</span><i class="fa-solid fa-caret-down"></i>
 					</div>
 					<div class="box" id="km">
+						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
+							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
 						<input type="text" name="car_min_mileage"> ~ <input
 							type="text" name="car_max_mileage">
 					</div>
@@ -106,6 +117,8 @@
 						<span>가격</span><i class="fa-solid fa-caret-down"></i>
 					</div>
 					<div class="box" id="price">
+						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input
+							type="text" name="car_max_price" id="min_price" onblur="chk_value()">
 						<input type="text" name="car_min_price"> ~ <input
 							type="text" name="car_max_price">
 					</div>
