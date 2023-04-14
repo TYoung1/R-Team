@@ -27,6 +27,7 @@ topbtn.addEventListener('click',function(){
     window.scrollTo({top:0,behavior:"smooth"});
 })
 
+<<<<<<< HEAD
 window.onscroll = ()=>window.scrollY > 500 ? topbtn.style.opacity=1 : topbtn.style.opacity=0;
 
 function chk_value() {
@@ -42,3 +43,6 @@ function chk_value() {
     } else {
         document.querySelector("button[type=submit]").setAttribute("disabled", "disabled")
     };
+=======
+window.onscroll = ()=>window.scrollY > 500 ? topbtn.style.opacity=1 : topbtn.style.opacity=0;
+>>>>>>> b4831083c9b64e85053d86c775545429c6546eb3

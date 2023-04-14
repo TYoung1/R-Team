@@ -18,6 +18,11 @@
 		id = (String)(request.getParameter("carid"));
 	}
 	CarData con = new DB_Conn().findDetail(id);
+<<<<<<< HEAD
+=======
+	String price = Integer.toString(con.PRICE);
+	
+>>>>>>> b4831083c9b64e85053d86c775545429c6546eb3
  %>
 
     <nav>
@@ -30,7 +35,15 @@
     </nav>
     <div class="main">
         <div class="wrapper">
+<<<<<<< HEAD
             <div class="title"><h1 class="car_name"></h1><h2 class="car_price">차랑가격 : 만원</h2></div>
+=======
+            <div class="title"><h1 class="car_name"></h1><%if(price.length()==4){ %>
+            <h2 class="car_price">차랑가격 :<%=price.substring(0,3)%>만원</h2>
+            <% }  else if(price.length() == 5){%>
+             <h2 class="car_price">차랑가격 :<%=price.substring(0,4)%>만원</h2><% } %>
+            </div>
+>>>>>>> b4831083c9b64e85053d86c775545429c6546eb3
             <div class="bigcon">
                 <div class="l_con">
                     <img src="<%=con.URL %>" width="100%" height="100%">
