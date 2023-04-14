@@ -1,0 +1,23 @@
+.container{
+	width:800px;
+	margin: 0 auto;
+}
+.title h1{
+	margin:0;
+}
+.content{
+	padding-top:20px;
+	height:400px;
+	background:#FDF5E6;
+}
+.sub{
+	padding-top:20px;
+	background:#FAEBCD;
+	font-size:18px;
+}
+.sub span{
+	float:right;
+}
+.title{
+	background:#FAEBC3;
+}
