@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+	width:1280px;
+	margin:0 auto;
+}
+table{
+	width:100%;
+	text-align:center;
+}
+tr{
+	width:25%;
+}
+tbody td{
+	height: 50px;
+}
+ul{
+	list-style:none;
+	
+}
+ul li{
+	float:left;
+}
