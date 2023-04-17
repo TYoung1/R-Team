@@ -1,5 +1,6 @@
 package DataClass;
 
+// 차량 관련  DTO	
 public class CarData {
 	public String TYPE;
 	public String MODEL;

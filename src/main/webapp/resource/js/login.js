@@ -28,3 +28,14 @@ function search_pw() {
         page.style.display = "none"
     }
 }
+
+
+// 언어 변경
+function change_language() {
+   var select_lang = document.getElementById("lang-change").value;
+   if(select_lang == "EN"){
+      location.href = "http://localhost:8080/Team/Login_en.jsp"
+   } else {
+      location.href = "http://localhost:8080/Team/Login.jsp"
+   }
+}

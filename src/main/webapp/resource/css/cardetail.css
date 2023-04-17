@@ -32,7 +32,7 @@ a{
 .main{
     position: relative;
     height: 700px;
-    margin-bottom:70px;
+    margin-bottom:200px;
 }
 .logo span{
     color: skyblue;
@@ -137,7 +137,6 @@ footer {
 }
 .btn_wrap{
     width: 100%;
-    display: flex;
 }
 .btn_wrap button{
     
@@ -155,4 +154,7 @@ footer {
 }.btn_wrap button:nth-child(2){
     width: 40%;
     border-radius: 0 0 15px 0;
+}
+.else_wrap{
+    height: 170px;
 }

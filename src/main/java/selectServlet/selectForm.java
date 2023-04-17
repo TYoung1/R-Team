@@ -44,9 +44,6 @@ public class selectForm extends HttpServlet {
 				_Data.ID = user_Id;
 				_Data.PW = user_Pw;
 				
-				
-				
-
 				// this.User_ID = user_id;
 				// this.User_PW = user_pw;
 				// this.User_NAME = user_name;
@@ -54,7 +51,7 @@ public class selectForm extends HttpServlet {
 				// this.User_GENDER = user_gender;
 				// this.User_EMAIL = user_email;
 				// this.User_P = user_phone;
-				
+//				로그인 함수 호출 
 				_Db.selectLogin(request, response, _Data);
 		} catch (Exception e) {
 			

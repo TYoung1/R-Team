@@ -37,19 +37,18 @@ public class deleteForm extends HttpServlet {
 
 			String user_Id = request.getParameter("User_id");
 			
-			insert_LoginData _Data = new insert_LoginData(); 
-					
+			insert_LoginData _Data = new insert_LoginData();
+//			유저에 값 저장
 				_Data.ID = user_Id;
-
-
 				// this.User_ID = user_id;
 				// this.User_PW = user_pw;
 				// this.User_NAME = user_name;
 				// this.User_BIRTH = user_birth;
 				// this.User_GENDER = user_gender;
 				// this.User_EMAIL = user_email;
-				// this.User_P = user_phone;
 				
+				// this.User_P = user_phone;
+//				회원삭제 함수 호출  
 				_Db.delete_UserData(request, response, _Data);
 		} catch (Exception e) {
 			

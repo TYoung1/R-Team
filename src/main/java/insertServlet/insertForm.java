@@ -57,7 +57,7 @@ public class insertForm extends HttpServlet {
 				// this.User_NAME = user_name;
 				// this.User_BIRTH = user_birth;
 				// this.User_GENDER = user_gender;
-				
+//				회원가입 함수 호출 
 				_Db.Insert_UserData(request,response,_Data);
 		} catch (Exception e) {
 			

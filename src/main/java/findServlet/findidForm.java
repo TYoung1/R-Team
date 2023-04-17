@@ -39,7 +39,7 @@ public class findidForm extends HttpServlet {
 
 	
 			insert_LoginData _Data = new insert_LoginData(); 
-					
+//					유저 DTO 에 값 저장 
 				_Data.NAME = user_Name;
 	
 				
@@ -49,7 +49,7 @@ public class findidForm extends HttpServlet {
 				// this.User_NAME = user_name;
 				// this.User_BIRTH = user_birth;
 				// this.User_GENDER = user_gender;
-				
+//				아이디 찾기 함수 호출
 				_Db.findid_UserData(request,response, _Data);
 		} catch (Exception e) {
 			

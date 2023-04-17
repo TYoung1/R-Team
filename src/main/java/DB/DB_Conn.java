@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import DataClass.CarData;
 import DataClass.insert_LoginData;
-
+// DB 연결
 public class DB_Conn {
 
 	public String _sql;
@@ -50,6 +50,7 @@ public class DB_Conn {
 
 	}
 
+//	 회원가입시 입력한 유저데이터 DB저장
 	public void Insert_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
 			throws IOException {
 		// Connection conn = null; // DB접속 객체
@@ -67,7 +68,7 @@ public class DB_Conn {
 			pstmt.setNString(5, _Data.GENDER);
 			// query 업데이트 
 			pstmt.executeUpdate();
-
+// 홈화면으로 리다이렉트 
 			response.sendRedirect("Home.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +91,7 @@ public class DB_Conn {
 		}
 
 	}
-
+// 해당하는 계정 로그인 
 	public void selectLogin(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
 			throws IOException {
 		// TODO Auto-generated method stub
@@ -99,6 +100,7 @@ public class DB_Conn {
 
 		try {
 			stmt = conn.createStatement();
+//			 ID,PW, 관리자인지 여부 확인 
 			String sql = "select _ID, _PW , _Master from User_Info where _ID = '" + _Data.ID + "'";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
@@ -120,10 +122,10 @@ public class DB_Conn {
 						session.setAttribute("user_id", _Data.ID);
 						session.setAttribute("user_pw", _Data.PW);
 						session.setAttribute("master", MASTER_);
-		
-						// 페이지 이동
+//		로그인 성공시 홈화면으로 이동
 						response.sendRedirect("Home.jsp");
 					} else {
+//						실패시 로그인화면으로 다시 리로딩
 						System.out.println("아이디 또는 비밀번호를 확인해주세요");
 						response.sendRedirect("Login.jsp");
 					}
@@ -151,7 +153,7 @@ public class DB_Conn {
 			}
 		}
 	}
-	
+//	회원 탈퇴 
 	public void delete_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
 			throws IOException {
 		// TODO Auto-generated method stub
@@ -162,6 +164,7 @@ public class DB_Conn {
 			PreparedStatement pstmt = null; // SQL실행객체
 
 			System.out.println(_Data.ID);
+//			해당 아이디를 찾아 삭제   (ID 기본키 중복불가)
 			String sql = "delete from User_Info where _ID = '" + _Data.ID + "'";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			pstmt = conn.prepareStatement(sql);
@@ -187,6 +190,7 @@ public class DB_Conn {
 		}
 	}
 
+//	아이디 찾기 
 	public void findid_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
@@ -227,6 +231,7 @@ public class DB_Conn {
 			}
 		}
 	}
+//	비밀번호 찾기 
 public void findpw_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
@@ -266,6 +271,7 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 			}
 		}
 	}
+// 선택한 차량의 아이디를 이용해 차량 상세정보 가져오기  ( car_detail 페이지에서 표시)
 	public CarData findDetail(String userid) {
 		ResultSet res = null;
 		try {
@@ -291,7 +297,9 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 			e.printStackTrace();
 		}
 		return null;
-	}  public void findcar_CarData(HttpServletRequest request, HttpServletResponse response, CarData _Data) {
+	} 
+//	차량 검색 조회 
+	public void findcar_CarData(HttpServletRequest request, HttpServletResponse response, CarData _Data) {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
 		ResultSet res = null;
@@ -299,6 +307,7 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 
 		try {
 			stmt = conn.createStatement();
+//			정보에맞는 차량 모두 조회 
 			String sql = "select _CARID ,_TYPE ,_YEAR , _PRICE , _MILEAGE ,_MAKE , _URL from car_info where _TYPE = '" + _Data.TYPE + "' AND _YEAR >= " + _Data.MIN_YEAR + " AND _YEAR <=" + _Data.MAX_YEAR + " AND _PRICE >= " + _Data.MIN_PRICE + " AND _PRICE <= " + _Data.MAX_PRICE + " AND _MILEAGE >= " + _Data.MIN_MILEAGE + " AND _MILEAGE <=" + _Data.MAX_MILEAGE + "";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			res = stmt.executeQuery(sql);
@@ -312,6 +321,7 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 		        car.MILEAGE = res.getInt("_MILEAGE");
 		        car.MAKE = res.getString("_MAKE");
 		        car.URL = res.getNString("_URL");
+//		        조회한 결과 객체에담고 리스트에 추가 
 		        carList.add(car);
 				
 				

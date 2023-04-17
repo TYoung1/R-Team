@@ -47,7 +47,7 @@ public class findpwForm extends HttpServlet {
 				// this.User_NAME = user_name;
 				// this.User_BIRTH = user_birth;
 				// this.User_GENDER = user_gender;
-				
+//				비밀번호찾기 함수 호출 
 				_Db.findpw_UserData(request,response, _Data);
 		} catch (Exception e) {
 			

@@ -1,5 +1,6 @@
 package Board;
 
+// 공지사항 DTO
 public class boarder {
 			 int seq;
 			 String title;

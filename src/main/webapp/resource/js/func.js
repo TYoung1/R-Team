@@ -1,3 +1,4 @@
+
 let title = document.getElementById("c_title");
 let img = document.getElementsByClassName("p_img");
 let now = document.getElementById("c_title");

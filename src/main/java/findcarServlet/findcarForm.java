@@ -35,7 +35,7 @@ public class findcarForm extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			DB_Conn _Db = new DB_Conn();
-			
+//			입력정보 변수에 저장
 			String car_Type = request.getParameter("car_type");
 //			String car_Model = request.getParameter("car_model");
 			int car_min_Mileage = Integer.parseInt(request.getParameter("car_min_mileage"));
@@ -50,7 +50,7 @@ public class findcarForm extends HttpServlet {
 
 	
 			CarData _Data = new CarData();
-					
+//					차량 DTO 에 값 저장
 				_Data.TYPE = car_Type;
 //				_Data.MODEL = car_Model;
 				_Data.MAX_MILEAGE = car_max_Mileage;
@@ -68,7 +68,7 @@ public class findcarForm extends HttpServlet {
 				// this.User_NAME = user_name;
 				// this.User_BIRTH = user_birth;
 				// this.User_GENDER = user_gender;
-				
+//				차량 조회 함수 호출
 				_Db.findcar_CarData(request,response, _Data);
 		} catch (Exception e) {
 			

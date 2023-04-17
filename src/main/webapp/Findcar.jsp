@@ -86,13 +86,11 @@
 						<span>차종</span><i class="fa-solid fa-caret-down"></i>
 					</div>
 					<div class="box" id="size">
-						<input type="radio" value="경차" name="car_type" checked="checked">경차
-
-							<input type="radio" value="경차" name="car_type">경차 <input
-							type="radio" value="소형" name="car_type">소형 <input
-							type="radio" value="중형" name="car_type">중형 <input
-							type="radio" value="대형" name="car_type">대형 <input
-							type="radio" value="스포츠카" name="car_type">스포츠카
+						<input type="radio" value="경차" name="car_type" checked="checked">경차 
+						<input type="radio" value="소형" name="car_type">소형 
+							<input type="radio" value="중형" name="car_type">중형 
+							<input type="radio" value="대형" name="car_type">대형 
+							<input type="radio" value="스포츠카" name="car_type">스포츠카
 					</div>
 					<div class="menu" onclick="Showandhide('year','sa')">
 						<span>연식</span><i class="fa-solid fa-caret-down"></i>
@@ -100,9 +98,6 @@
 					<div class="box" id="year">
 						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
-						<input type="text" name="car_min_year"> ~ <input
-							type="text" name="car_max_year">
-
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
 						<span>주행거리</span><i class="fa-solid fa-caret-down"></i>
@@ -110,8 +105,6 @@
 					<div class="box" id="km">
 						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
-						<input type="text" name="car_min_mileage"> ~ <input
-							type="text" name="car_max_mileage">
 					</div>
 					<div class="menu" onclick="Showandhide('price','foa')">
 						<span>가격</span><i class="fa-solid fa-caret-down"></i>
@@ -119,8 +112,6 @@
 					<div class="box" id="price">
 						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_price" id="min_price" onblur="chk_value()">
-						<input type="text" name="car_min_price"> ~ <input
-							type="text" name="car_max_price">
 					</div>
 						<button type="submit">검색하기</button>
 				</form>

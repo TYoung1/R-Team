@@ -3,4 +3,4 @@
 		<%
 			session.removeAttribute("user_id");
 			response.sendRedirect("Home.jsp");
-		%>	
+		%>			

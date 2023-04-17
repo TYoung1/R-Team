@@ -1,5 +1,6 @@
 package DataClass;
 
+// 유저 DTO
 public class insert_LoginData {
 
 	public String ID;

@@ -15,19 +15,59 @@
 </head>
 <body>
 	<%
-		String userID = null; // 로그인이 된 사람들은 로그인정보를 담을 수 있도록한다
-	    if (session.getAttribute("user_id") != null)
-	    {
-	        userID = (String)session.getAttribute("user_id");
-    	}
-		
+	 // ID 체크 
+	Object ID_ = session.getAttribute("user_id");
+	String ID_value = (String) ID_;
+	Integer MASTER_ = (Integer)session.getAttribute("master");
+	
+	// SEQ 해당게시글 번호 찾기
 		int seq = 0;
 		if(request.getParameter("seq")!= null){
 			seq = Integer.parseInt(request.getParameter("seq"));
 		}
-		
+		// 해당 번호에 맞는 게시글 정보 가져오기 
 		boarder con = new db_con().getboarder(seq);
 	%>
+	<nav>
+		<a href="Home.jsp" class="logo"><span>개발</span>차</a>
+		<!-- ID_ 가 Null 이면 navbar 상단에 로그인 / 회원가입 표시 -->
+		<%
+		if (ID_ == null) {
+		%>
+		<ul>
+			<li><a href="Login.jsp">로그인</a></li>
+			<li><a href="Signup.jsp">회원가입</a></li>
+		</ul>
+		<!-- ID_ 가 Null이 아니면 navbar 상단에 섹션에 담긴 ID값과 로그아웃 / 회원탈퇴 표시 -->
+		<%
+		} else {
+			if(MASTER_ == 0) {
+		%>
+		<ul>
+			<li>
+				<%
+				out.println("회원 : " + ID_value);
+				%>
+			</li>
+			<li><a href="./Logout.jsp">로그아웃</a></li>
+			<li><a href="./Delete.jsp">회원탈퇴</a></li>
+		</ul>
+		<%
+		} else { 
+		%>
+			<ul>
+			<li>
+				<%
+				out.println("회원 : " + ID_value);
+				%>
+			</li>
+			<li><a href="Write.jsp">어드민</a></li>
+			<li><a href="./Logout.jsp">로그아웃</a></li>
+			<li><a href="./Delete.jsp">회원탈퇴</a></li>
+		</ul>
+		<% 
+		}} %>
+	</nav>
 	<div class="container">
 		<div class= "row">
 			<div class="title"><h1>제목 : <%= con.getTitle() %></h1></div>

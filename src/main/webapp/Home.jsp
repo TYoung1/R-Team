@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	  <%@ page import="java.io.PrintWriter" %>
+<%@ page import="DB.db_con" %>
+<%@ page import="Board.boarder" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -355,9 +359,17 @@
 									<a href="notice_h.jsp"><i class="fa-solid fa-plus"></i></a>	
 								</div>
 								<div class="n_bottom">
-									<p>
-										.title <span>.date</span>
+								<%
+							           db_con bcon = new db_con();
+								ArrayList<boarder> list = bcon.getNotice();
+							           for(int i = 0; i < list.size(); i++)
+							          {
+    			 				%>
+									<a href="notice_content.jsp?seq=<%=list.get(i).getSeq() %>"><p>
+										<strong><%= list.get(i).getTitle() %></strong><span><%= list.get(i).getRegdate().substring(0,11) %></span>
 									</p>
+									</a>
+									<%} %>
 								</div>
 							</div>
 							<div class="event">
@@ -376,6 +388,11 @@
 										<div class="swiper-slide">
 											<div class="evt_wrap">
 												<img src="resource/img/evt3.png" width="100%" height="100%">
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="evt_wrap">
+												<img src="resource/img/여기어때.png" width="100%" height="100%">
 											</div>
 										</div>
 									</div>
@@ -397,11 +414,10 @@
 					</div>
 					<div class="box" id="size">
 						<input type="radio" value="경차" name="car_type" checked="checked">경차 
-						<input type="radio" value="경차" name="car_type">경차 <input
-							type="radio" value="소형" name="car_type">소형 <input
-							type="radio" value="중형" name="car_type">중형 <input
-							type="radio" value="대형" name="car_type">대형 <input
-							type="radio" value="스포츠카" name="car_type">스포츠카
+						<input type="radio" value="소형" name="car_type">소형 
+							<input type="radio" value="중형" name="car_type">중형 
+							<input type="radio" value="대형" name="car_type">대형 
+							<input type="radio" value="스포츠카" name="car_type">스포츠카
 					</div>
 					<div class="menu" onclick="Showandhide('year','sa')">
 						<span>연식</span><i class="fa-solid fa-caret-down"></i>
@@ -409,8 +425,6 @@
 					<div class="box" id="year">
 						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
-						<input type="text" name="car_min_year"> ~ <input
-							type="text" name="car_max_year">
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
 						<span>주행거리</span><i class="fa-solid fa-caret-down"></i>
@@ -418,8 +432,6 @@
 					<div class="box" id="km">
 						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
-						<input type="text" name="car_min_mileage"> ~ <input
-							type="text" name="car_max_mileage">
 					</div>
 					<div class="menu" onclick="Showandhide('price','foa')">
 						<span>가격</span><i class="fa-solid fa-caret-down"></i>
@@ -427,8 +439,6 @@
 					<div class="box" id="price">
 						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_price" id="min_price" onblur="chk_value()">
-						<input type="text" name="car_min_price"> ~ <input
-							type="text" name="car_max_price">
 					</div>
 						<button type="submit">검색하기</button>
 				</form>
