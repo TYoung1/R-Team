@@ -4,6 +4,7 @@
 <%@ page import="DB.db_con" %>
 <%@ page import="Board.boarder" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.io.File" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +14,11 @@
 <title>개발차</title>
 <script src="https://kit.fontawesome.com/ec5d781ab7.js"
 	crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="resource/img/gae	cha.ico" type="image/x-icon">
 <link rel="stylesheet" href="resource/css/home.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-</head>
+</head>	
 <body>
 	<%
 	Object ID_ = session.getAttribute("user_id");
@@ -91,25 +93,25 @@
 				<div class="p_btn">
 					<button onclick="Switch('Audi')" name="car_type" value="audi">
 						<div>
-							<img src="resource/img/Audi.png" width="40%" height="100%" />
+							<img src="resource/img/Audi.png" width="65px" height="40px" />
 							<div>AUDI</div>
 						</div>
 					</button>
 					<button onclick="Switch('Toyota')" name="car_type" value="toyota">
 						<div>
-							<img src="resource/img/toyota.png" width="40%" height="100%" />
+							<img src="resource/img/toyota.png"width="65px" height="40px"  />
 							<div>TOYOTA</div>
 						</div>
 					</button>
 					<button onclick="Switch('Hyundai')" name="car_type" value="hyundai">
 						<div>
-							<img src="resource/img/Hyundai.png" width="50%" height="100%" />
+							<img src="resource/img/Hyundai.png" width="65px" height="40px" />
 							<div>HYUNDAI</div>
 						</div>
 					</button>
 					<button onclick="Switch('Vw')" name="car_type" value="vw">
 						<div>
-							<img src="resource/img/vw.png" width="28%" height="100%" />
+							<img src="resource/img/vw.png" width="65px" height="40px"  />
 							<div>VW</div>
 						</div>
 					</button>
@@ -122,234 +124,124 @@
 				</div>
 				<span id="c_title">AUDI</span>
 				<div class="p_img" id="Audi" style="display: block;">
-					<div class="swiper mySwiper2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
+					 <div class="swiper mySwiper2">
+					<div class="swiper-wrapper">
+				<% String path = "C:\\Users\\admin\\eclipse-workspace\\Team\\src\\main\\webapp\\resource\\img\\audi";
+				   File folder1 = new File(path);
+				   File[] filelist1 = folder1.listFiles();
+				   
+				   
+				   String path2 = "C:\\Users\\admin\\eclipse-workspace\\Team\\src\\main\\webapp\\resource\\img\\bmw";
+				   File folder2 = new File(path2);
+				   File[] filelist2 = folder2.listFiles();
+				   
+				   
+				   String path3 = "C:\\Users\\admin\\eclipse-workspace\\Team\\src\\main\\webapp\\resource\\img\\hyundai";
+				   File folder3 = new File(path3);
+				   File[] filelist3 = folder3.listFiles();
+				   
+				   
+				   String path4 = "C:\\Users\\admin\\eclipse-workspace\\Team\\src\\main\\webapp\\resource\\img\\vw";
+				   File folder4 = new File(path4);
+				   File[] filelist4 = folder4.listFiles();
+				   
+				   String path5 = "C:\\Users\\admin\\eclipse-workspace\\Team\\src\\main\\webapp\\resource\\img\\toyota";
+				   File folder5 = new File(path5);
+				   File[] filelist5 = folder5.listFiles();
+				   
+				   
+				   for(File file: filelist1){
+					   if(file.isFile()){
+						 %>
+						 <div class="swiper-slide">
 								<div class="car_wrap">
-									<img src="resource/img/Audi_A1.png" width="100%" height="100%">
+									<img src="resource/img/<%=file.toString().substring(67) %>" width="100%" height="100%">
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A3.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A4.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A5.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A6.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A7.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/Audi_A8.png" width="100%" height="100%">
-								</div>
-							</div>
-						</div>
+						 <% 
+					   }
+				   }
+				   %>
+				   </div>
 					</div>
 				</div>
 				<div class="p_img" id="Bmw">
-					<div class="swiper mySwiper2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
+						 <div class="swiper mySwiper2">
+					<div class="swiper-wrapper">
+				<% 
+				   for(File file: filelist2){
+					   if(file.isFile()){
+						 %>
+						 <div class="swiper-slide">
 								<div class="car_wrap">
-									<img src="resource/img/BMW_1_Series.png" width="100%"
-										height="100%">
+									<img src="resource/img/<%=file.toString().substring(67) %>" width="100%" height="100%">
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_2_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_3_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_4_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_5_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_6_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_7_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/BMW_8_Series.png" width="100%"
-										height="100%">
-								</div>
-							</div>
-						</div>
+						 <% 
+					   }
+				   }
+				   %>
+				   </div>
 					</div>
 				</div>
 				<div class="p_img" id="Hyundai">
 					<div class="swiper mySwiper2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
+					<div class="swiper-wrapper">
+				<% 
+				   for(File file: filelist3){
+					   if(file.isFile()){
+						 %>
+						 <div class="swiper-slide">
 								<div class="car_wrap">
-									<img src="resource/img/그랜저.png" width="100%" height="100%">
+									<img src="resource/img/<%=file.toString().substring(67) %>" width="100%" height="100%">
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/넥쏘.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/베뉴.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/쏘나타.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/아반떼.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/아이오닉5.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/아이오닉6.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/캐스퍼.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/코나.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/투싼.png" width="100%" height="100%">
-								</div>
-							</div>
-						</div>
+						 <% 
+					   }
+				   }
+				   %>
+				   </div>
 					</div>
 				</div>
 				<div class="p_img" id="Vw">
-					<div class="swiper mySwiper2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
+					 <div class="swiper mySwiper2">
+					<div class="swiper-wrapper">
+				<% 
+				   for(File file: filelist4){
+					   if(file.isFile()){
+						 %>
+						 <div class="swiper-slide">
 								<div class="car_wrap">
-									<img src="resource/img/golf.png" width="100%" height="100%">
+									<img src="resource/img/<%=file.toString().substring(67) %>" width="100%" height="100%">
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/passat.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/polo.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/up.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/tiguan.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/sharan.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/tcross.png" width="100%" height="100%">
-								</div>
-							</div>
-						</div>
+						 <% 
+					   }
+				   }
+				   %>
+				   </div>
 					</div>
 				</div>
 				<div class="p_img" id="Toyota">
-					<div class="swiper mySwiper2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
+					 <div class="swiper mySwiper2">
+					<div class="swiper-wrapper">
+				<% 
+				   for(File file: filelist5){
+					   if(file.isFile()){
+						 %>
+						 <div class="swiper-slide">
 								<div class="car_wrap">
-									<img src="resource/img/gr86.png" width="100%" height="100%">
+									<img src="resource/img/<%=file.toString().substring(67) %>" width="100%" height="100%">
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/supra.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/prius.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/yaris.png" width="100%" height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/proace.png      " width="100%"
-										height="100%">
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="car_wrap">
-									<img src="resource/img/rav4.png" width="100%" height="100%">
-								</div>
-							</div>
-						</div>
+						 <% 
+					   }
+				   }
+				   %>
+				   </div>
 					</div>
 				</div>
+				
 				<div class="bottom">
 					<div class="wrapper">
 						<div class="flex_con">
@@ -410,7 +302,7 @@
 			<div class="side">
 				<form method="post" action="findcarForm">
 					<div class="menu" onclick="Showandhide('size','fa')">
-						<span>차종</span><i class="fa-solid fa-caret-down"></i>
+						<span>차종</span><i class="fa-solid fa-caret-down" id="fa"></i>
 					</div>
 					<div class="box" id="size">
 						<input type="radio" value="경차" name="car_type" checked="checked">경차 
@@ -420,21 +312,21 @@
 							<input type="radio" value="스포츠카" name="car_type">스포츠카
 					</div>
 					<div class="menu" onclick="Showandhide('year','sa')">
-						<span>연식</span><i class="fa-solid fa-caret-down"></i>
+						<span>연식</span><i class="fa-solid fa-caret-down" id="sa"></i>
 					</div>
 					<div class="box" id="year">
 						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
-						<span>주행거리</span><i class="fa-solid fa-caret-down"></i>
+						<span>주행거리</span><i class="fa-solid fa-caret-down" id="ta"></i>
 					</div>
 					<div class="box" id="km">
 						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
 							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
 					</div>
 					<div class="menu" onclick="Showandhide('price','foa')">
-						<span>가격</span><i class="fa-solid fa-caret-down"></i>
+						<span>가격</span><i class="fa-solid fa-caret-down" id="foa"></i>
 					</div>
 					<div class="box" id="price">
 						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input

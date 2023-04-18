@@ -1,19 +1,16 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="DataClass.CarData"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>개발차</title>
+<title>Insert title here</title>
 </head>
 <script src="https://kit.fontawesome.com/ec5d781ab7.js"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="resource/css/findcar.css">
 <body>
-	<nav>
+<nav>
 		<%
 		Object ID_ = session.getAttribute("user_id");
 		String ID_value = (String) ID_;
@@ -44,39 +41,9 @@
 		}
 		%>
 	</nav>
-	<div class="main">
+		<div class="main">
 		<div class="wrapper">
-			<div class="contents">
-				<%
-				ArrayList<CarData> carList = (ArrayList<CarData>) session.getAttribute("car_List");
-				for (CarData car : carList) {
-					String car_id = car.CAR_ID;
-					String type = car.TYPE;
-					int year = car.YEAR;
-					int price = car.PRICE;
-					int mile = car.MILEAGE;
-					String make = car.MAKE;
-					String url = car.URL;
-				%>
-				<a href="car_detail.jsp?carid=<%=car_id%>">
-					<div class="card">
-						<div class="c_bottom">
-							<div >
-								<img src="<%=url%>" width="100%" height="100%" />
-							</div>
-							<div class="bottom1"><%=type%></div>
-							<div class="bottom2">
-								<span class="card_info_center">연식 <%=year%></span><span
-									class="card_info_center">가격 <%=price%></span><span
-									class="card_info_center">주행거리 <%=mile%></span>
-							</div>
-						</div>
-					</div>
-				</a>
-				<%
-				}
-				%>
-			</div>
+		 <h4 style="text-align:center;">검색하신 조건에 맞는 차량이 없습니다.</h4>
 		</div>
 		<div class="detail">
 			<h3>상세조회</h3>
@@ -117,8 +84,7 @@
 				</form>
 			</div>
 		</div>
-	<div id="gotop"><i class="fa-regular fa-circle-up" style="color:skyblue"></i></div>
-	</div>
+		</div>
+		<script src="resource/js/func.js"></script>
 </body>
-<script src="resource/js/func.js"></script>
 </html>

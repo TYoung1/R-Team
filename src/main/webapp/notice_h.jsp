@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1" >
 <link rel="stylesheet" href="resource/css/noticehome.css">
-<title>메인페이지</title>
+<title>개발차  : 공지</title>
 </head>
 <body>
 <%

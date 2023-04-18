@@ -311,6 +311,7 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 			String sql = "select _CARID ,_TYPE ,_YEAR , _PRICE , _MILEAGE ,_MAKE , _URL from car_info where _TYPE = '" + _Data.TYPE + "' AND _YEAR >= " + _Data.MIN_YEAR + " AND _YEAR <=" + _Data.MAX_YEAR + " AND _PRICE >= " + _Data.MIN_PRICE + " AND _PRICE <= " + _Data.MAX_PRICE + " AND _MILEAGE >= " + _Data.MIN_MILEAGE + " AND _MILEAGE <=" + _Data.MAX_MILEAGE + "";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			res = stmt.executeQuery(sql);
+			if(res.next()) {
 			while (res.next()) {
 				CarData car = new CarData();
 				car.CAR_ID = res.getString("_CARID");
@@ -323,16 +324,19 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 		        car.URL = res.getNString("_URL");
 //		        조회한 결과 객체에담고 리스트에 추가 
 		        carList.add(car);
-				
+			
 				
 //				int _Ad = res.getInt("Admin_chk");
 			}
 			HttpSession session = request.getSession();
 			session.setAttribute("car_List", carList);
-			System.out.println(carList.get(0).PRICE);
-
-			
+		
 			response.sendRedirect("Findcar.jsp");
+			}
+			else {
+				response.sendRedirect("findNone.jsp");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
