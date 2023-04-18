@@ -61,7 +61,7 @@
 				<a href="car_detail.jsp?carid=<%=car_id%>">
 					<div class="card">
 						<div class="c_bottom">
-							<div>
+							<div >
 								<img src="<%=url%>" width="100%" height="100%" />
 							</div>
 							<div class="bottom1"><%=type%></div>
