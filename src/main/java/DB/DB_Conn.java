@@ -131,6 +131,8 @@ public class DB_Conn {
 						response.sendRedirect("Home.jsp");
 					} else {
 //						실패시 로그인화면으로 다시 리로딩
+						HttpSession session = request.getSession();
+						session.setAttribute("chk", "2");
 						response.sendRedirect("Login.jsp");
 					}
 				}

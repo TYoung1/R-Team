@@ -2,6 +2,8 @@
 let title = document.getElementById("c_title");
 let img = document.getElementsByClassName("p_img");
 let now = document.getElementById("c_title");
+
+
 function Switch(car){
     for(var i=0;i<img.length;i++){
         img[i].style.display="none";
@@ -44,4 +46,14 @@ function active(){
     }else{
         btn.setAttribute("disabled","disabled")
     }
+}
+// 버튼 색깔 변경
+function color(tar){
+	let sbtn = document.getElementsByClassName("sbtn");
+	let target = document.getElementById(tar);
+	for(let i=0; i<sbtn.length;i++){
+	sbtn[i].style.border="1px solid skyblue";
+	}
+	target.style.border ="2px solid red";
+	
 }

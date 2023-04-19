@@ -91,31 +91,31 @@
 		<div class="wrapper">
 			<div class="product">
 				<div class="p_btn">
-					<button onclick="Switch('Audi')" name="car_type" value="audi">
+					<button onclick="Switch('Audi');color('one');" name="car_type" value="audi" class="sbtn" id="one">
 						<div>
 							<img src="resource/img/Audi.png" width="65px" height="40px" />
 							<div>AUDI</div>
 						</div>
 					</button>
-					<button onclick="Switch('Toyota')" name="car_type" value="toyota">
+					<button onclick="Switch('Toyota');color('two');" name="car_type" value="toyota" class="sbtn" id="two">
 						<div>
 							<img src="resource/img/toyota.png"width="65px" height="40px"  />
 							<div>TOYOTA</div>
 						</div>
 					</button>
-					<button onclick="Switch('Hyundai')" name="car_type" value="hyundai">
+					<button onclick="Switch('Hyundai');color('three');" name="car_type" value="hyundai" class="sbtn" id="three">
 						<div>
 							<img src="resource/img/Hyundai.png" width="65px" height="40px" />
 							<div>HYUNDAI</div>
 						</div>
 					</button>
-					<button onclick="Switch('Vw')" name="car_type" value="vw">
+					<button onclick="Switch('Vw');color('four');" name="car_type" value="vw" class="sbtn" id="four">
 						<div>
 							<img src="resource/img/vw.png" width="65px" height="40px"  />
 							<div>VW</div>
 						</div>
 					</button>
-					<button onclick="Switch('Bmw')" name="car_type" value="bmw">
+					<button onclick="Switch('Bmw');color('five');" name="car_type" value="bmw" class="sbtn" id="five">
 						<div>
 							<img src="resource/img/BMW.png" width="65px" height="40px"/>
 							<div>BMW</div>

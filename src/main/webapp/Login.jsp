@@ -14,6 +14,24 @@
 </head>
 
 <body>
+	<% String Chk = (String)session.getAttribute("chk"); 
+		if(Chk =="1"){
+			session.removeAttribute("chk");
+		%>
+		<script>
+			alert("존재하지 않는 아이디 입니다.");
+		</script>
+	<%
+		}
+	else if(Chk == "2"){
+		session.removeAttribute("chk");
+	%>
+		<script>
+			alert("비밀번호가 틀립니다.");
+		</script>
+	<%
+		}
+	%>
 	<div id="app">
 		<section class="lay_out">
 			<div class="ko">
