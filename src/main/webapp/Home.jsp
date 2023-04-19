@@ -14,7 +14,7 @@
 <title>개발차</title>
 <script src="https://kit.fontawesome.com/ec5d781ab7.js"
 	crossorigin="anonymous"></script>
-<link rel="shortcut icon" href="resource/img/gae	cha.ico" type="image/x-icon">
+<link rel="shortcut icon" href="resource/img/gaecha.ico" >
 <link rel="stylesheet" href="resource/css/home.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -117,7 +117,7 @@
 					</button>
 					<button onclick="Switch('Bmw')" name="car_type" value="bmw">
 						<div>
-							<img src="resource/img/BMW.png" width="50%" />
+							<img src="resource/img/BMW.png" width="65px" height="40px"/>
 							<div>BMW</div>
 						</div>
 					</button>
@@ -315,24 +315,24 @@
 						<span>연식</span><i class="fa-solid fa-caret-down" id="sa"></i>
 					</div>
 					<div class="box" id="year">
-						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
+						<input type="text" name="car_min_year" id="min_year" onblur="active()"> ~ <input
+							type="text" name="car_max_year" id="max_year" onblur="active()">
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
 						<span>주행거리</span><i class="fa-solid fa-caret-down" id="ta"></i>
 					</div>
 					<div class="box" id="km">
-						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
+						<input type="text" name="car_min_mileage" id="min_mileage" onblur="active()"> ~ <input
+							type="text" name="car_max_mileage" id="max_mileage" onblur="active()">
 					</div>
 					<div class="menu" onclick="Showandhide('price','foa')">
 						<span>가격</span><i class="fa-solid fa-caret-down" id="foa"></i>
 					</div>
 					<div class="box" id="price">
-						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_price" id="min_price" onblur="chk_value()">
+						<input type="text" name="car_min_price" id="min_price" onblur="active()"> ~ <input
+							type="text" name="car_max_price" id="max_price" onblur="active()">
 					</div>
-						<button type="submit">검색하기</button>
+						<button type="submit" id="search" disabled>검색하기</button>
 				</form>
 			</div>
 		</div>

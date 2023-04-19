@@ -9,6 +9,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="resource/css/signup.css">
 </head>
+<%
+Object chk_ = session.getAttribute("chk");
+String chk_value = (String) chk_;
+%>
+<%
+if (chk_value != null) {
+   session.removeAttribute("chk");
+%>
+<script>
+   alert("아이디가 중복됩니다.");
+</script>
+<%
+}
+%>
+<script src="resource/js/input_info.js"></script>
+
 <body>
     <nav>
         <a href="Home.jsp" class="logo"><span>개발</span>차</a>
@@ -22,25 +38,30 @@
             <div class="sign_box">
                 <div class="title"><h1>회원가입</h1></div>
                 <div class="content">
-                    <form action="insertForm" method="post" enctype="utf-8">
-                        <label>아이디</labe><br>
-                        <input type="text" name="user_id"><br>
-                        <label>비밀번호</label><br>
-                        <input type="password" name="user_pw"><br>
-                        <label>비밀번호 확인</label><br>
-                        <input type="password" name="Chk_pw"><br>
-                        <label>이름</label><br>
-                        <input type="text" name="user_name"><br>
-                        <label>생년월일</label><br>
-                        <input type="text" placeholder="생년월일 8자리를 입력해주세요." name="user_birth"><br>
-                        <label>성별</label><br>
-                        <select name="user_gender" id="gen">
-                            <option selected disabled>성별선택</option>
-                            <option value="male" >남</option>
-                            <option value="female">여</option>
-                        </select>
-                        <button type="submit">가입하기</button>   
-                    </form>
+                    <form action="insertForm" method="post" enctype="utf-8"
+                  onsubmit="return validateForm()">
+                  <label>아이디</labe> <input type="text" name="user_id" id="ID_in"
+                     onblur="ID_input()">
+                     <div id="id_inner" class="c_red"></div> <label>비밀번호</label> <input
+                     type="password" name="user_pw" id="PW_" onblur="PW_input()">
+                     <div id="pw_inner" class="c_red"></div> <label>비밀번호 확인</label> <input
+                     type="password" name="Chk_pw" id="RPW_" onblur="RPW_input()">
+                     <div id="rpw_inner" class="c_red"></div> <label>이름</label> <input
+                     type="text" name="user_name" id="NAME_" onblur="NAME_input()">
+                     <div id="name_inner" class="c_red"></div> <label>생년월일</label><br>
+                     <input type="text" placeholder="생년월일 8자리를 입력해주세요."
+                     name="user_birth" id="BIRTH_" onblur="BIRTH_input()"
+                     maxlength="8">
+                     <div id="birth_inner" class="c_red"></div> <label>성별</label> <select
+                     name="user_gender" id="gen" onblur="GENDER_input()">
+                        <option selected disabled value="0">성별선택</option>
+                        <option value="male">남</option>
+                        <option value="female">여</option>
+                  </select>
+                     <div id="gender_inner" class="c_red"></div>
+                     <button type="submit" onclick="submit_btn()" id="btn_">가입하기</button>
+               </form>
+
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@
 						</div>
 						<p class="welcome-message">
 							Cheaper vehicles!<br> As an integrated membership
-							subscription service for "Developed Cars"<br> Log in
+							subscription service for "Gaebal Cha"<br> Log in
 							conveniently!
 						</p>
 					</div>

@@ -72,6 +72,11 @@ public class DB_Conn {
 			response.sendRedirect("Home.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
+//			아이디 중복시 
+			 HttpSession session = request.getSession();
+	         session.setAttribute("chk", "1");
+	         response.sendRedirect("Signup.jsp");
+
 			// sql 에 접속 연결을 끊음.
 		} finally {
 			try {
@@ -126,14 +131,17 @@ public class DB_Conn {
 						response.sendRedirect("Home.jsp");
 					} else {
 //						실패시 로그인화면으로 다시 리로딩
-						System.out.println("아이디 또는 비밀번호를 확인해주세요");
 						response.sendRedirect("Login.jsp");
 					}
 				}
 			}
-			if (!idExist) {
-				response.sendRedirect("Login.jsp");
-			}
+		    
+	         if (!idExist) {
+	            HttpSession session = request.getSession();
+	            session.setAttribute("chk", "1");
+	            response.sendRedirect("Login.jsp");
+	         }
+
 		} catch (Exception e) {
 			response.sendRedirect("Login.jsp");
 		} finally {
@@ -209,7 +217,7 @@ public class DB_Conn {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", ID_);
 
-				response.sendRedirect("find.jsp");
+				response.sendRedirect("findid.jsp");
 //				int _Ad = res.getInt("Admin_chk");
 			}
 		} catch (Exception e) {
@@ -249,7 +257,7 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 				HttpSession session = request.getSession();
 				session.setAttribute("user_pw", PW_);
 
-				response.sendRedirect("find.jsp");
+				response.sendRedirect("findpw.jsp");
 //				int _Ad = res.getInt("Admin_chk");
 			}
 		} catch (Exception e) {

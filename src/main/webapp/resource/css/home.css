@@ -226,3 +226,32 @@ footer {
     justify-content: center;
     align-items: center;
 }
+@media only screen and (max-width:1700px){
+	.banner{
+		width:1150px;
+	}
+	.wrapper{
+		width:1150px;
+	}
+	.detail{
+		display:none;
+	}
+}
+@media only screen and (max-width:1150px){
+	.banner{
+			width:800px;
+	}
+	.wrapper{
+		width:800px;
+	}
+	
+}
+@media only screen and (max-width:800px){
+	.banner{
+		width:600px;
+	}
+	.wrapper{
+		width:600px;
+	}
+	
+}

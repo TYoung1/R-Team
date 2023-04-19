@@ -30,17 +30,18 @@ topbtn.addEventListener('click',function(){
 
 window.onscroll = ()=>window.scrollY > 500 ? topbtn.style.opacity=1 : topbtn.style.opacity=0;
 
-function chk_value() {
-    const min_year = document.getElementById("min_year").value;
-    const max_year = document.getElementById("max_year").value;
-    const min_mileage = document.getElementById("min_year").value;
-    const max_mileage = document.getElementById("max_year").value;
-    const min_price = document.getElementById("min_year").value;
-    const max_price = document.getElementById("max_year").value;
+// 검색 조건 
+function active(){
+    let a = document.getElementById("min_year").value;
+    let b = document.getElementById("max_year").value;
+    let c = document.getElementById("min_mileage").value;
+    let d = document.getElementById("max_mileage").value;
+    let e = document.getElementById("min_price").value;
+    let f = document.getElementById("max_price").value;
+    let btn = document.getElementById("search");
+    if(a!="" && b!="" && c!="" && d!="" && e!="" && f!=""){
+        btn.removeAttribute("disabled");
+    }else{
+        btn.setAttribute("disabled","disabled")
     }
-    if (min_year !== "" && max_year !== "" && min_mileage !== "" && max_mileage !== "" && min_price !== "" && max_price !== "") {
-        document.querySelector("button[type=submit]").removeAttribute("disabled")
-    } else {
-        document.querySelector("button[type=submit]").setAttribute("disabled", "disabled")
-    };
-
+}
