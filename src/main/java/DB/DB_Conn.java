@@ -199,7 +199,7 @@ public class DB_Conn {
 	}
 
 //	아이디 찾기 
-	public void findid_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) {
+	public void findid_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) throws IOException {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
 		ResultSet res = null;
@@ -220,7 +220,10 @@ public class DB_Conn {
 				response.sendRedirect("findid.jsp");
 //				int _Ad = res.getInt("Admin_chk");
 			}
+			//해당 쿼리 결과가 없을 경우 페이지 리로딩
+			response.sendRedirect("findid.jsp");
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		} finally {
 			try {
@@ -259,7 +262,9 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 
 				response.sendRedirect("findpw.jsp");
 //				int _Ad = res.getInt("Admin_chk");
-			}
+			}	
+			//해당 쿼리 결과가 없을 경우 페이지 리로딩
+			response.sendRedirect("findpw.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
