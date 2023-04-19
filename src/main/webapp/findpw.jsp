@@ -11,18 +11,42 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="content">
-            <h1><a href="#"><span>개발</span>차</a></h1>
+   <div class="main">
+      <div class="content">
+         <h1>
+            <a href="#"><span>개발</span>차</a>
+         </h1>
 
-        <form method="post" action="findpwForm">
-            <input type="text" placeholder="아이디를 입력하세요" name=user_id>
-            <input type="text" placeholder="이름을 입력하세요" name=user_name>
-            <input type="text" placeholder="생년월일 6자리" name=user_birth>
-            <input type="text" placeholder="성별입력" name=user_gender>
+         <form method="post" action="findpwForm">
+            <input type="text" placeholder="아이디를 입력하세요" name=user_id> <input
+               type="text" placeholder="이름을 입력하세요" name=user_name> <input
+               type="text" placeholder="생년월일 6자리" name=user_birth> <input
+               type="text" placeholder="성별입력" name=user_gender>
             <button type="submit">비밀번호 찾기</button>
-        </form>
-        </div>
-    </div>
+         </form>
+         </div>
+         <div class="inner" id="innerText">
+            <%
+            Object PW_ = session.getAttribute("user_pw");
+            String PW_value = (String) PW_;
+            %>
+            <%
+            if (PW_ != null) {
+            %>
+            <div>
+               <%
+               out.println("회원 비밀번호 : " + PW_value);
+               %>
+            </div>
+            <%
+            } else {
+            %>
+            <div></div>
+            <%
+            }
+            session.removeAttribute("user_pw");
+            %>
+         </div>
+      </div>
 </body>
 </html>

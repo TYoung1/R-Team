@@ -38,6 +38,10 @@
         border: 1px solid skyblue;
         border-radius: 10px;
     }
+        .inner {
+       text-align: center;
+       font-size: 20px;
+    }
     form{
         width: 500px;
         margin: 0 auto;
