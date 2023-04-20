@@ -39,8 +39,8 @@
 						<em class="fot_em">© 2023 Kim Tae Young , Park Jun Beom. All
 							Rights Reserved.</em>
 					</div>
-					<label class="language" style="width: 200px;"> 
-					<select onchange="change_language()" id="lang-change">
+					<label class="language" style="width: 200px;"> <select
+						onchange="change_language()" id="lang-change">
 							<option value="KO">KOREAN</option>
 							<option value="EN" selected="selected">ENGLISH</option>
 					</select>
@@ -70,7 +70,8 @@
 									<div class="login-con" id="guide">
 										<div class="more-content">
 											<div class="primary-center">
-												<button class="message_button" onclick="search_id()">Find Id</button>
+												<button class="message_button" onclick="search_id()">Find
+													Id</button>
 												<iframe title="help scout beacon" class="frame"
 													style="display: none;" id="id_page" src="findid.jsp"
 													width="600px" height="600px" frameborder="0"> </iframe>
@@ -78,7 +79,8 @@
 										</div>
 										<div class="more-content">
 											<div class="primary-center">
-												<button class="message_button" onclick="search_pw()">Find Password</button>
+												<button class="message_button" onclick="search_pw()">Find
+													Password</button>
 												<iframe title="help scout beacon" class="frame"
 													style="display: none;" id="pw_page" src="findpw.jsp"
 													width="600px" height="600px" frameborder="0"> </iframe>

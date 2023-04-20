@@ -61,7 +61,7 @@
 				<a href="car_detail.jsp?carid=<%=car_id%>">
 					<div class="card">
 						<div class="c_bottom">
-							<div >
+							<div>
 								<img src="<%=url%>" width="100%" height="100%" />
 							</div>
 							<div class="bottom1"><%=type%></div>
@@ -82,42 +82,63 @@
 			<h3>상세조회</h3>
 			<div class="side">
 				<form method="post" action="findcarForm">
-					<div class="menu" onclick="Showandhide('size','fa')">
-						<span>차종</span><i class="fa-solid fa-caret-down" id="fa"></i>
+					<div class="menu" onclick="Showandhide('make','ma')">
+						<span>브랜드</span><i class="fa-solid fa-caret-down" id="ma"></i>
+					</div>
+					<div class="box" id="make">
+						<select name="car_make" class="menu_sel">
+							<option value="audi" selected="selected" name="car_make">
+								AUDI</option>
+							<option value="BMW" name="car_make">BMW</option>
+							<option value="Hyundai" name="car_make">HYUNDAI</option>
+							<option value="toyota" name="car_make">TOYOTA</option>
+							<option value="vw" name="car_make">VW</option>
+						</select>
+					</div>
+					<div class="menu" onclick="Showandhide('size','ra')">
+						<span>차종</span><i class="fa-solid fa-caret-down" id="ra"></i>
 					</div>
 					<div class="box" id="size">
-						<input type="radio" value="경차" name="car_type" checked="checked">경차 
-						<input type="radio" value="소형" name="car_type">소형 
-							<input type="radio" value="중형" name="car_type">중형 
-							<input type="radio" value="대형" name="car_type">대형 
-							<input type="radio" value="스포츠카" name="car_type">스포츠카
+						<select name="car_type" class="menu_sel">
+							<option value="경차" selected="selected" name="car_type">
+								ㅡ 경차 ㅡ</option>
+							<option value="소형" name="car_type">ㅡ 소형 ㅡ</option>
+							<option value="중형" name="car_type">ㅡ 중형 ㅡ</option>
+							<option value="대형" name="car_type">ㅡ 대형 ㅡ</option>
+							<option value="스포츠카" name="car_type">ㅡ 스포츠카 ㅡ</option>
+						</select>
 					</div>
 					<div class="menu" onclick="Showandhide('year','sa')">
 						<span>연식</span><i class="fa-solid fa-caret-down" id="sa"></i>
 					</div>
 					<div class="box" id="year">
-						<input type="text" name="car_min_year" id="min_year" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_year" id="max_year" onblur="chk_value()">
+						<input type="text" name="car_min_year" id="min_year"
+							onblur="active()"> ~ <input type="text"
+							name="car_max_year" id="max_year" onblur="active()">
 					</div>
 					<div class="menu" onclick="Showandhide('km','ta')">
 						<span>주행거리</span><i class="fa-solid fa-caret-down" id="ta"></i>
 					</div>
 					<div class="box" id="km">
-						<input type="text" name="car_min_mileage" id="mileage_year" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_mileage" id="mileage_year" onblur="chk_value()">
+						<input type="text" name="car_min_mileage" id="min_mileage"
+							onblur="active()"> ~ <input type="text"
+							name="car_max_mileage" id="max_mileage" onblur="active()">
 					</div>
 					<div class="menu" onclick="Showandhide('price','foa')">
 						<span>가격</span><i class="fa-solid fa-caret-down" id="foa"></i>
 					</div>
 					<div class="box" id="price">
-						<input type="text" name="car_min_price" id="min_price" onblur="chk_value()"> ~ <input
-							type="text" name="car_max_price" id="min_price" onblur="chk_value()">
+						<input type="text" name="car_min_price" id="min_price"
+							onblur="active()"> ~ <input type="text"
+							name="car_max_price" id="max_price" onblur="active()">
 					</div>
-						<button type="submit">검색하기</button>
+					<button type="submit" id="search" disabled>검색하기</button>
 				</form>
 			</div>
 		</div>
-	<div id="gotop"><i class="fa-regular fa-circle-up" style="color:skyblue"></i></div>
+		<div id="gotop">
+			<i class="fa-regular fa-circle-up" style="color: skyblue"></i>
+		</div>
 	</div>
 </body>
 <script src="resource/js/func.js"></script>

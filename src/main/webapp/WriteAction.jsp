@@ -1,12 +1,13 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="DB.db_con" %>
-<%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8"); %> 
-<jsp:useBean id="bbs" class="Board.boarder"/>	
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="DB.db_con"%>
+<%@ page import="java.io.PrintWriter"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="bbs" class="Board.boarder" />
 <jsp:setProperty name="bbs" property="title" />
-<jsp:setProperty name="bbs" property="content" />	
- 
+<jsp:setProperty name="bbs" property="content" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 <title>JSP게시판 웹사이트</title>
 </head>
 <body>
-    <%
+	<%
         String userID = null;
         // 로그인 된 사람은 로그인 정보 담기
         if(session.getAttribute("user_id") != null )
@@ -55,4 +56,4 @@
         }
     %>
 </body>
-</html> 
+</html>

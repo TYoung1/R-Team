@@ -21,6 +21,12 @@ a{
     color: #777;
     text-decoration: none;
 }
+.menu_sel {
+   width: 100%;
+   border: 0;
+   font-size: 16px;
+   text-align: center;
+}
 
 .logo{
     font-size: 18px;

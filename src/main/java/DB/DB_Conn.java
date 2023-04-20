@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import DataClass.CarData;
 import DataClass.insert_LoginData;
+
 // DB 연결
 public class DB_Conn {
 
@@ -38,7 +39,7 @@ public class DB_Conn {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			String url = "jdbc:mysql://192.168.250.33/gaebalcar?characterEncoding=UTF-8&serverTimezone=UTC";
-			String id = "team";																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												
+			String id = "team";
 			String pwd = "1234"; // mysql 접속 비번
 			conn = DriverManager.getConnection(url, id, pwd);
 			System.out.println("db접속 성공");
@@ -57,25 +58,27 @@ public class DB_Conn {
 		PreparedStatement pstmt = null; // SQL실행객체
 
 		try {
-			// sql insert query  User_Info table에 _ID, _PW, _Name, _Birth, _Gender에 values를 넣을거다.
+			// sql insert query User_Info table에 _ID, _PW, _Name, _Birth, _Gender에 values를
+			// 넣을거다.
 			String sql = "insert into User_Info(_ID, _PW, _Name, _Birth, _Gender)" + "values(?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, _Data.ID);
 			pstmt.setString(2, _Data.PW);
 			pstmt.setString(3, _Data.NAME);
 			pstmt.setString(4, _Data.BIRTH);
 			pstmt.setNString(5, _Data.GENDER);
-			// query 업데이트 
+			// query 업데이트
 			pstmt.executeUpdate();
 // 홈화면으로 리다이렉트 
 			response.sendRedirect("Home.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
-//			아이디 중복시 
-			 HttpSession session = request.getSession();
-	         session.setAttribute("chk", "1");
-	         response.sendRedirect("Signup.jsp");
+//			아이디 중복시 예외처리
+//			세션객체 사용해서 저장 
+			HttpSession session = request.getSession();
+			session.setAttribute("chk", "1");
+			response.sendRedirect("Signup.jsp");
 
 			// sql 에 접속 연결을 끊음.
 		} finally {
@@ -96,6 +99,7 @@ public class DB_Conn {
 		}
 
 	}
+
 // 해당하는 계정 로그인 
 	public void selectLogin(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
 			throws IOException {
@@ -122,7 +126,7 @@ public class DB_Conn {
 					if (PW_.equals(_Data.PW)) {
 						System.out.println("로그인 되었습니다.");
 						System.out.println(ID_);
-
+//						세션객체 사용해서 저장 
 						HttpSession session = request.getSession();
 						session.setAttribute("user_id", _Data.ID);
 						session.setAttribute("user_pw", _Data.PW);
@@ -130,19 +134,19 @@ public class DB_Conn {
 //		로그인 성공시 홈화면으로 이동
 						response.sendRedirect("Home.jsp");
 					} else {
-//						실패시 로그인화면으로 다시 리로딩
+//						비밀번호 불일치로 실패시 로그인화면으로 다시 리로딩
 						HttpSession session = request.getSession();
 						session.setAttribute("chk", "2");
 						response.sendRedirect("Login.jsp");
 					}
 				}
 			}
-		    
-	         if (!idExist) {
-	            HttpSession session = request.getSession();
-	            session.setAttribute("chk", "1");
-	            response.sendRedirect("Login.jsp");
-	         }
+//			아이디 불일치로 실패시 예외
+			if (!idExist) {
+				HttpSession session = request.getSession();
+				session.setAttribute("chk", "1");
+				response.sendRedirect("Login.jsp");
+			}
 
 		} catch (Exception e) {
 			response.sendRedirect("Login.jsp");
@@ -163,6 +167,7 @@ public class DB_Conn {
 			}
 		}
 	}
+
 //	회원 탈퇴 
 	public void delete_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
 			throws IOException {
@@ -172,8 +177,6 @@ public class DB_Conn {
 
 		try {
 			PreparedStatement pstmt = null; // SQL실행객체
-
-			System.out.println(_Data.ID);
 //			해당 아이디를 찾아 삭제   (ID 기본키 중복불가)
 			String sql = "delete from User_Info where _ID = '" + _Data.ID + "'";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
@@ -201,31 +204,32 @@ public class DB_Conn {
 	}
 
 //	아이디 찾기 
-	public void findid_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) throws IOException {
+	public void findid_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data)
+			throws IOException {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
 		ResultSet res = null;
 
-
 		try {
 			stmt = conn.createStatement();
-			String sql = "select _ID from User_Info where _Name = '" + _Data.NAME + "'";
-//			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
+			String sql = "select _ID from User_Info where _Name = '" + _Data.NAME + "' AND _Birth = '" + _Data.BIRTH
+					+ "' AND _Gender = '" + _Data.GENDER + "'";
+//	         String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
 			res = stmt.executeQuery(sql);
 			while (res.next()) {
 				String ID_ = res.getString("_ID");
-
+//				세션객체 사용해서 저장 
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", ID_);
 
 				response.sendRedirect("findid.jsp");
-//				int _Ad = res.getInt("Admin_chk");
+//	            int _Ad = res.getInt("Admin_chk");
 			}
-			//해당 쿼리 결과가 없을 경우 페이지 리로딩
+			// 해당 쿼리 결과가 없을 경우 페이지 리로딩
 			response.sendRedirect("findid.jsp");
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		} finally {
 			try {
@@ -244,28 +248,31 @@ public class DB_Conn {
 			}
 		}
 	}
-//	비밀번호 찾기 
-public void findpw_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) {
+
+	// 비밀번호 찾기
+	public void findpw_UserData(HttpServletRequest request, HttpServletResponse response, insert_LoginData _Data) {
 		// TODO Auto-generated method stub
 		Statement stmt = null;
 		ResultSet res = null;
 
 		try {
 			stmt = conn.createStatement();
-			String sql = "select _PW from User_Info where _ID = '" + _Data.ID + "' AND _Name = '" + _Data.NAME + "'";
-//			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
+			String sql = "select _PW from User_Info where _ID = '" + _Data.ID + "' AND _Name = '" + _Data.NAME
+					+ "' AND _Birth = '" + _Data.BIRTH + "' AND _Gender = '" + _Data.GENDER + "'";
+//	         String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
 			res = stmt.executeQuery(sql);
 			while (res.next()) {
 				String PW_ = res.getString("_PW");
 
+//				세션객체 사용해서 저장 
 				HttpSession session = request.getSession();
 				session.setAttribute("user_pw", PW_);
-
+//  			pw찾기 성공시 리다이렉션 
 				response.sendRedirect("findpw.jsp");
-//				int _Ad = res.getInt("Admin_chk");
-			}	
-			//해당 쿼리 결과가 없을 경우 페이지 리로딩
+//	            int _Ad = res.getInt("Admin_chk");
+			}
+			// 해당 쿼리 결과가 없을 경우 페이지 리로딩
 			response.sendRedirect("findpw.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -286,15 +293,18 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 			}
 		}
 	}
+
 // 선택한 차량의 아이디를 이용해 차량 상세정보 가져오기  ( car_detail 페이지에서 표시)
 	public CarData findDetail(String userid) {
 		ResultSet res = null;
 		try {
-			String sql = "select A._TYPE, A._MODEL,A._YEAR,A._PRICE,A._MILEAGE,A._MAKE,A._URL, B._ACCIDENT,B._FUELTYPE,B._mpg FROM car_info AS A LEFT JOIN car_detail AS B ON A._CARID = B._CARID where A._CARID = ?" ;
+			String sql = "select A._TYPE, A._MODEL,A._YEAR,A._PRICE,A._MILEAGE,A._MAKE,A._URL, B._ACCIDENT,B._FUELTYPE,B._mpg FROM car_info AS A LEFT JOIN car_detail AS B ON A._CARID = B._CARID where A._CARID = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,userid);
-			res= pstmt.executeQuery();
-			if(res.next()) {
+			pstmt.setString(1, userid);
+			res = pstmt.executeQuery();
+	
+			if (res.next()) {
+//				조회 차량 정보 객체에 담아서 리턴 
 				CarData dt = new CarData();
 				dt.setTYPE(res.getString(1));
 				dt.setMODEL(res.getString(2));
@@ -308,11 +318,12 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 				dt.setMPG(res.getString(10));
 				return dt;
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
-	} 
+	}
+
 //	차량 검색 조회 
 	public void findcar_CarData(HttpServletRequest request, HttpServletResponse response, CarData _Data) {
 		// TODO Auto-generated method stub
@@ -323,35 +334,36 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 		try {
 			stmt = conn.createStatement();
 //			정보에맞는 차량 모두 조회 
-			String sql = "select _CARID ,_TYPE ,_YEAR , _PRICE , _MILEAGE ,_MAKE , _URL from car_info where _TYPE = '" + _Data.TYPE + "' AND _YEAR >= " + _Data.MIN_YEAR + " AND _YEAR <=" + _Data.MAX_YEAR + " AND _PRICE >= " + _Data.MIN_PRICE + " AND _PRICE <= " + _Data.MAX_PRICE + " AND _MILEAGE >= " + _Data.MIN_MILEAGE + " AND _MILEAGE <=" + _Data.MAX_MILEAGE + "";
+			String sql = "select _CARID ,_TYPE ,_YEAR , _PRICE , _MILEAGE ,_MAKE , _URL from car_info where _MAKE ='"
+					+ _Data.MAKE + "' AND _TYPE ='" + _Data.TYPE + "' AND _YEAR >= " + _Data.MIN_YEAR + " AND _YEAR <="
+					+ _Data.MAX_YEAR + " AND _PRICE >= " + _Data.MIN_PRICE + " AND _PRICE <= " + _Data.MAX_PRICE
+					+ " AND _MILEAGE >= " + _Data.MIN_MILEAGE + " AND _MILEAGE <=" + _Data.MAX_MILEAGE + "";
 //			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			res = stmt.executeQuery(sql);
-			if(res.next()) {
-			while (res.next()) {
-				CarData car = new CarData();
-				car.CAR_ID = res.getString("_CARID");
-				car.TYPE = res.getString("_TYPE");
+			if (res.next()) {
+				while (res.next()) {
+					CarData car = new CarData();
+					car.CAR_ID = res.getString("_CARID");
+					car.TYPE = res.getString("_TYPE");
 //		        car.MODEL = res.getString("_MODEL");
-				car.YEAR = res.getInt("_YEAR");
-		        car.PRICE = res.getInt("_PRICE");
-		        car.MILEAGE = res.getInt("_MILEAGE");
-		        car.MAKE = res.getString("_MAKE");
-		        car.URL = res.getNString("_URL");
+					car.YEAR = res.getInt("_YEAR");
+					car.PRICE = res.getInt("_PRICE");
+					car.MILEAGE = res.getInt("_MILEAGE");
+					car.MAKE = res.getString("_MAKE");
+					car.URL = res.getNString("_URL");
 //		        조회한 결과 객체에담고 리스트에 추가 
-		        carList.add(car);
-			
-				
+					carList.add(car);
+
 //				int _Ad = res.getInt("Admin_chk");
-			}
-			HttpSession session = request.getSession();
-			session.setAttribute("car_List", carList);
-		
-			response.sendRedirect("Findcar.jsp");
-			}
-			else {
+				}
+				HttpSession session = request.getSession();
+				session.setAttribute("car_List", carList);
+
+				response.sendRedirect("Findcar.jsp");
+			} else {
 				response.sendRedirect("findNone.jsp");
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -372,4 +384,3 @@ public void findpw_UserData(HttpServletRequest request, HttpServletResponse resp
 		}
 	}
 }
-

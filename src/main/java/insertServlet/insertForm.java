@@ -19,19 +19,21 @@ import DataClass.insert_LoginData;
 @WebServlet("/insertForm")
 public class insertForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public insertForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public insertForm() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("UTF-8");
@@ -43,31 +45,29 @@ public class insertForm extends HttpServlet {
 			String user_Name = request.getParameter("user_name");
 			String user_Birth = request.getParameter("user_birth");
 			String user_Gender = request.getParameter("user_gender");
-			
-			insert_LoginData _Data = new insert_LoginData(); 
-					
-				_Data.ID = user_Id;
-				_Data.PW = user_Pw;
-				_Data.NAME = user_Name;
-				_Data.BIRTH =user_Birth;
-				_Data.GENDER = user_Gender;
 
-				// this.User_ID = user_id;
-				// this.User_PW = user_pw;
-				// this.User_NAME = user_name;
-				// this.User_BIRTH = user_birth;
-				// this.User_GENDER = user_gender;
+			insert_LoginData _Data = new insert_LoginData();
+
+			_Data.ID = user_Id;
+			_Data.PW = user_Pw;
+			_Data.NAME = user_Name;
+			_Data.BIRTH = user_Birth;
+			_Data.GENDER = user_Gender;
+
+		
 //				회원가입 함수 호출 
-				_Db.Insert_UserData(request,response,_Data);
+			_Db.Insert_UserData(request, response, _Data);
 		} catch (Exception e) {
-			
+
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		request.setCharacterEncoding("UTF-8");

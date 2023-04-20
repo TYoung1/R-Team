@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="DB.db_con" %>
-<%@ page import="Board.boarder" %>
-<%@ page import="java.util.ArrayList" %>
-    <jsp:useBean id="bbs" class="Board.boarder"/>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="DB.db_con"%>
+<%@ page import="Board.boarder"%>
+<%@ page import="java.util.ArrayList"%>
+<jsp:useBean id="bbs" class="Board.boarder" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width", initial-scale="1" >
+<meta name="viewport" content="width=device-width" , initial-scale="1">
 <link rel="stylesheet" href="resource/css/notice_con.css">
 <title>개발차 : 공지</title>
 </head>
@@ -55,7 +55,7 @@
 		<%
 		} else { 
 		%>
-			<ul>
+		<ul>
 			<li>
 				<%
 				out.println("회원 : " + ID_value);
@@ -69,11 +69,18 @@
 		}} %>
 	</nav>
 	<div class="container">
-		<div class= "row">
-			<div class="title"><h1>제목 : <%= con.getTitle() %></h1></div>
-			<div class="sub">작성자 : <%=con.getUser_id() %><span>시간 : <%= con.getRegdate().substring(5,10) +"일"+ con.getRegdate().substring(11,13)+"시" %></span></div>
-			<div class = "content"><%=con.getContent() %></div>
-			
+		<div class="row">
+			<div class="title">
+				<h1>
+					제목 :
+					<%= con.getTitle() %></h1>
+			</div>
+			<div class="sub">
+				작성자 :
+				<%=con.getUser_id() %><span>시간 : <%= con.getRegdate().substring(5,10) +"일"+ con.getRegdate().substring(11,13)+"시" %></span>
+			</div>
+			<div class="content"><%=con.getContent() %></div>
+
 		</div>
 	</div>
 </body>

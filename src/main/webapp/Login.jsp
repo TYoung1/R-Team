@@ -18,7 +18,7 @@
 		if(Chk =="1"){
 			session.removeAttribute("chk");
 		%>
-		<script>
+	<script>
 			alert("존재하지 않는 아이디 입니다.");
 		</script>
 	<%
@@ -26,7 +26,7 @@
 	else if(Chk == "2"){
 		session.removeAttribute("chk");
 	%>
-		<script>
+	<script>
 			alert("비밀번호가 틀립니다.");
 		</script>
 	<%
@@ -55,12 +55,12 @@
 						<em class="fot_em">© 2023 Kim Tae Young , Park Jun Beom. All
 							Rights Reserved.</em>
 					</div>
-					    <label class="language" style="width: 200px;"> 
-               <select onchange="change_language()" id="lang-change">
-                     <option value="KO">한국어</option>
-                     <option value="EN">영어</option>
-               </select>
-               </label>
+					<label class="language" style="width: 200px;"> <select
+						onchange="change_language()" id="lang-change">
+							<option value="KO">한국어</option>
+							<option value="EN">영어</option>
+					</select>
+					</label>
 				</div>
 
 				<div class="login-container">
@@ -89,8 +89,8 @@
 												<button class="message_button" onclick="search_id()">아이디
 													찾기</button>
 												<iframe title="help scout beacon" class="frame"
-                                       style="display: none;" id="id_page" src="findid.jsp"
-                                       width="600px" height="600px" frameborder="0"> </iframe>
+													style="display: none;" id="id_page" src="findid.jsp"
+													width="600px" height="600px" frameborder="0"> </iframe>
 											</div>
 										</div>
 										<div class="more-content">
@@ -104,7 +104,8 @@
 										</div>
 										<div class="more-content">
 											<div class="primary-center">
-												<a href="Signup.jsp" id="link" style="text-decoration: none;">회원가입</a>
+												<a href="Signup.jsp" id="link"
+													style="text-decoration: none;">회원가입</a>
 											</div>
 										</div>
 									</div>
