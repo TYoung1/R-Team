@@ -2,6 +2,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+button{
+	cursor:pointer;
+}
 nav ul{
 	width:400px;
     list-style: none;
@@ -65,6 +68,19 @@ ul{
 ul li{
 	float:left;
 	margin-left:20px;
+}
+#write{
+	border:1px solid #888;
+	width:100px;
+	height:40px;
+	background:none;
+}
+#delete{
+	float:right;
+	border:1px solid #888;
+	width:100px;
+	height:40px;
+	background:none;
 }
 .page{
 	padding-top:200px;

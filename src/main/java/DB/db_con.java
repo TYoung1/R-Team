@@ -33,7 +33,7 @@ public class db_con {
 // 글쓴 시간 가져오기
 	public String getDate() {
 		try {
-//			
+//			현재 시간날짜 가져오는 쿼리 
 			String sql = "SELECT NOW()";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 //			쿼리문 실행결과 res에 담아주기

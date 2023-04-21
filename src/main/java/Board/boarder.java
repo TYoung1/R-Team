@@ -2,12 +2,12 @@ package Board;
 
 // 공지사항 DTO
 public class boarder {
-	int seq;
+	public int seq;
 	String title;
 	String content;
 	String user_id;
 	String regdate;
-	int availiable; // 1=게시 0 = 삭제된거
+	public int availiable; // 1=게시 0 = 삭제된거
 
 	public int getSeq() {
 		return seq;

@@ -67,9 +67,11 @@
 	</nav>
 	<div class="container">
 		<div class="row">
+		<form name="notice_delete" method="post" action="deleteNotice">
 			<table>
 				<thead>
 					<tr>
+						<th style="background-color: #eeeeee; text-align: center;">체크</th>
 						<th style="background-color: #eeeeee; text-align: center;">번호</th>
 						<th style="background-color: #eeeeee; text-align: center;">제목</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
@@ -80,18 +82,22 @@
 					<%
            db_con bcon = new db_con();
 			ArrayList<boarder> list = bcon.getList(pag);
-           for(int i = 0; i < list.size(); i++)
+			int j= ((pag-1)*10+1);
+           for(int i =0; i < list.size(); i++)
           {
      %>
 					<tr>
-						<td><%= list.get(i).getSeq() %></td>
+						<td><input type="checkbox" name="del" value="<%=list.get(i).getSeq()%>"/></td>
+						<td><%= j%></td>
 						<td><a
 							href="notice_content.jsp?seq=<%=list.get(i).getSeq() %>"><%= list.get(i).getTitle() %></a></td>
-						<td><%= list.get(i).getUser_id() %></td>
+						<td>관리자</td>
 						<td><%= list.get(i).getRegdate().substring(5,10) +"일 "+ list.get(i).getRegdate().substring(11,13)+"시" %></td>
 					</tr>
 					<%
-                    }
+                    
+          j++;
+          	}
                 %>
 				</tbody>
 			</table>
@@ -101,10 +107,13 @@
 		}
 		else if(MASTER_ != 0){
 			%>
-			<button onClick="location.href='Write.jsp'">공지쓰기</button>
+			<button type="submit" id="delete">삭제하기</button>
+			</form>
+			<button onClick="location.href='Write.jsp'" id="write">공지쓰기</button>
 			<% 
 		}
 			%>
+			
 			<div class="page">
 				<ul style="list-style: none;">
 					<% 

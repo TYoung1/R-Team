@@ -12,8 +12,8 @@
 	Object ID_ = session.getAttribute("user_id");
 	String ID_value = (String) ID_;
 	%>
-		<input type="text" name="User_id" value="<%=ID_value %>">
-		<button type="submit" onClick="location.href='logout.jsp'">네</button>
+		<input type="text" name="User_id" >
+		<button type="submit" onClick="location.href='Logout.jsp'">네</button>
 		<a href="Logout.jsp">아니오</a>
 	</form>
 </body>

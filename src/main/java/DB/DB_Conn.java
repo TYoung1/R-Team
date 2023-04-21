@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Board.boarder;
 import DataClass.CarData;
 import DataClass.insert_LoginData;
 
@@ -58,8 +59,7 @@ public class DB_Conn {
 		PreparedStatement pstmt = null; // SQL실행객체
 
 		try {
-			// sql insert query User_Info table에 _ID, _PW, _Name, _Birth, _Gender에 values를
-			// 넣을거다.
+//			회원가입 정보  insert 쿼리 
 			String sql = "insert into User_Info(_ID, _PW, _Name, _Birth, _Gender)" + "values(?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 
@@ -111,15 +111,14 @@ public class DB_Conn {
 			stmt = conn.createStatement();
 //			 ID,PW, 관리자인지 여부 확인 
 			String sql = "select _ID, _PW , _Master from User_Info where _ID = '" + _Data.ID + "'";
-//			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
 			res = stmt.executeQuery(sql);
 			boolean idExist = false;
+//			res.next() 존재하는 정보 순차적으로 뿌려줌
 			while (res.next()) {
 				String ID_ = res.getString("_ID");
 				String PW_ = res.getString("_PW");
 				int MASTER_ = res.getInt("_Master");
-//				int _Ad = res.getInt("Admin_chk");
 
 				if (_Data.ID.equals(ID_)) {
 					idExist = true;
@@ -179,10 +178,9 @@ public class DB_Conn {
 			PreparedStatement pstmt = null; // SQL실행객체
 //			해당 아이디를 찾아 삭제   (ID 기본키 중복불가)
 			String sql = "delete from User_Info where _ID = '" + _Data.ID + "'";
-//			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			response.sendRedirect("logout.jsp");
+			response.sendRedirect("Logout.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -212,9 +210,9 @@ public class DB_Conn {
 
 		try {
 			stmt = conn.createStatement();
+//			이름과 성별, 생년월일로 정보찾는 쿼리 
 			String sql = "select _ID from User_Info where _Name = '" + _Data.NAME + "' AND _Birth = '" + _Data.BIRTH
 					+ "' AND _Gender = '" + _Data.GENDER + "'";
-//	         String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
 			res = stmt.executeQuery(sql);
 			while (res.next()) {
@@ -224,7 +222,6 @@ public class DB_Conn {
 				session.setAttribute("user_id", ID_);
 
 				response.sendRedirect("findid.jsp");
-//	            int _Ad = res.getInt("Admin_chk");
 			}
 			// 해당 쿼리 결과가 없을 경우 페이지 리로딩
 			response.sendRedirect("findid.jsp");
@@ -257,9 +254,9 @@ public class DB_Conn {
 
 		try {
 			stmt = conn.createStatement();
+//			아이디,이름,생년월일,성별로 정보찾는 쿼리
 			String sql = "select _PW from User_Info where _ID = '" + _Data.ID + "' AND _Name = '" + _Data.NAME
 					+ "' AND _Birth = '" + _Data.BIRTH + "' AND _Gender = '" + _Data.GENDER + "'";
-//	         String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 
 			res = stmt.executeQuery(sql);
 			while (res.next()) {
@@ -268,9 +265,8 @@ public class DB_Conn {
 //				세션객체 사용해서 저장 
 				HttpSession session = request.getSession();
 				session.setAttribute("user_pw", PW_);
-//  			pw찾기 성공시 리다이렉션 
+//  			pw찾기 성공시 (찾은 정보를 가지고 )리다이렉션 
 				response.sendRedirect("findpw.jsp");
-//	            int _Ad = res.getInt("Admin_chk");
 			}
 			// 해당 쿼리 결과가 없을 경우 페이지 리로딩
 			response.sendRedirect("findpw.jsp");
@@ -298,6 +294,7 @@ public class DB_Conn {
 	public CarData findDetail(String userid) {
 		ResultSet res = null;
 		try {
+//			차량 데이터와 차량디테일 데이터 조인후 정보가져오는 쿼리 
 			String sql = "select A._TYPE, A._MODEL,A._YEAR,A._PRICE,A._MILEAGE,A._MAKE,A._URL, B._ACCIDENT,B._FUELTYPE,B._mpg FROM car_info AS A LEFT JOIN car_detail AS B ON A._CARID = B._CARID where A._CARID = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userid);
@@ -323,7 +320,47 @@ public class DB_Conn {
 		}
 		return null;
 	}
-
+//	공지 삭제
+	public void delete_Notice(HttpServletRequest request, HttpServletResponse response, String[] chk)
+			throws IOException {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet res = null;
+		try {
+			PreparedStatement pstmt = null; // SQL실행객체
+//			공지사항 여러개 삭제 가능하게하기위한 반복문
+			String params="";
+			for(int i=0; i<chk.length;i++) {
+				params+=chk[i];
+				if(i<chk.length-1) {
+					params +=", ";
+				}
+			}
+//			params에 해당하는 정보 삭제 쿼리 
+			String sql = "DELETE FROM notice WHERE _AVAILABLE = 1 and _seq IN ("+params+")";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+//			삭제후 다시 공지리스트 페이지로 리다이렉트 
+			response.sendRedirect("notice_h.jsp");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 //	차량 검색 조회 
 	public void findcar_CarData(HttpServletRequest request, HttpServletResponse response, CarData _Data) {
 		// TODO Auto-generated method stub
@@ -338,14 +375,12 @@ public class DB_Conn {
 					+ _Data.MAKE + "' AND _TYPE ='" + _Data.TYPE + "' AND _YEAR >= " + _Data.MIN_YEAR + " AND _YEAR <="
 					+ _Data.MAX_YEAR + " AND _PRICE >= " + _Data.MIN_PRICE + " AND _PRICE <= " + _Data.MAX_PRICE
 					+ " AND _MILEAGE >= " + _Data.MIN_MILEAGE + " AND _MILEAGE <=" + _Data.MAX_MILEAGE + "";
-//			String sql = "select User_ID, User_PW ,Admin_chk from join_info where User_ID = '" + _Data.ID + "'";
 			res = stmt.executeQuery(sql);
 			if (res.next()) {
 				while (res.next()) {
 					CarData car = new CarData();
 					car.CAR_ID = res.getString("_CARID");
 					car.TYPE = res.getString("_TYPE");
-//		        car.MODEL = res.getString("_MODEL");
 					car.YEAR = res.getInt("_YEAR");
 					car.PRICE = res.getInt("_PRICE");
 					car.MILEAGE = res.getInt("_MILEAGE");
@@ -354,11 +389,9 @@ public class DB_Conn {
 //		        조회한 결과 객체에담고 리스트에 추가 
 					carList.add(car);
 
-//				int _Ad = res.getInt("Admin_chk");
 				}
 				HttpSession session = request.getSession();
 				session.setAttribute("car_List", carList);
-
 				response.sendRedirect("Findcar.jsp");
 			} else {
 				response.sendRedirect("findNone.jsp");
