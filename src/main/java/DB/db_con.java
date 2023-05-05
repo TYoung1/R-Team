@@ -108,7 +108,7 @@ public class db_con {
 
 //	공지 리스트 
 	public ArrayList<boarder> getList(int pageNum) {
-		String sql = "SELECT * FROM notice WHERE _SEQ > ? AND _AVAILABLE = 1 ORDER BY _SEQ LIMIT 10";
+		String sql = "SELECT * FROM notice WHERE  _AVAILABLE = 1 ORDER BY _SEQ LIMIT ?,10";
 //		객체생성
 		ArrayList<boarder> list = new ArrayList<boarder>();
 		try {
@@ -186,4 +186,6 @@ public class db_con {
 		}
 		return null;
 	}
+	
+	
 }

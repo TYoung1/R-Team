@@ -169,5 +169,11 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="resource/js/swiper.js"></script>
+	<script type="text/javascript">
+			/* localStorage */
+			let list = [];
+			list += "<%= id %>";
+			localStorage.setItem('recentcar',list);
+	</script>
 </body>
 </html>

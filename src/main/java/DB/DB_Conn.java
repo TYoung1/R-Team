@@ -126,7 +126,7 @@ public class DB_Conn {
 						System.out.println("로그인 되었습니다.");
 						System.out.println(ID_);
 //						세션객체 사용해서 저장 
-						HttpSession session = request.getSession();
+						HttpSession session = request.getSession();	
 						session.setAttribute("user_id", _Data.ID);
 						session.setAttribute("user_pw", _Data.PW);
 						session.setAttribute("master", MASTER_);

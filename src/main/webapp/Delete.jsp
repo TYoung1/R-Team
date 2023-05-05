@@ -12,7 +12,7 @@
 	Object ID_ = session.getAttribute("user_id");
 	String ID_value = (String) ID_;
 	%>
-		<input type="text" name="User_id" >
+		<input type="text" name="User_id" placeholder="아이디를 입력하세요">
 		<button type="submit" onClick="location.href='Logout.jsp'">네</button>
 		<a href="Logout.jsp">아니오</a>
 	</form>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="DB.db_con"%>
+<%@ page import="DB.db_con" %>
 <%@ page import="Board.boarder"%>
 <%@ page import="java.util.ArrayList"%>
 <jsp:useBean id="bbs" class="Board.boarder" />

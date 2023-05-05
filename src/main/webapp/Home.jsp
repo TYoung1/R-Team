@@ -24,7 +24,9 @@
 	Object ID_ = session.getAttribute("user_id");
 	String ID_value = (String) ID_;
 	Integer MASTER_ = (Integer) session.getAttribute("master");
+	String car="";
 	%>
+
 	<nav>
 		<a href="#" class="logo"><span>개발</span>차</a>
 		<!-- ID_ 가 Null 이면 navbar 상단에 로그인 / 회원가입 표시 -->
@@ -386,4 +388,5 @@
 		session.removeAttribute("user_id");
 	}
 </script>
+
 </html>

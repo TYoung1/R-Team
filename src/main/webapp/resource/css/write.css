@@ -1,0 +1,27 @@
+*{
+	box-sizing:border-box;	
+}
+form{
+	width:1000px;
+	margin:0 auto;	
+	margin-top:100px;
+}
+.table{
+	width:1000px;
+
+}
+thead{
+	width:100%;
+}
+tbody{
+	width:100%;
+}
+input{
+	width:100%;
+}
+textarea{
+	width:100%;
+}
+input[type="submit"]{
+	width:1000px;
+}
